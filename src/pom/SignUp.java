@@ -25,23 +25,43 @@ public class SignUp {
     }
     // method to type firstname
     public void enterfirstName() {
-        driver.findElement(firstName).sendKeys("Abh");
+    	if( driver.findElement(firstName).isDisplayed()) {
+    		System.out.println("First name box is present");
+    		 driver.findElement(firstName).sendKeys("Abh");
+    	}
+       
     }
     // method to type username
     public void entersurName() {
-        driver.findElement(surName).sendKeys("rig");
+    	if(driver.findElement(surName).isDisplayed()) {
+    		System.out.println("surname box is present");
+    		driver.findElement(surName).sendKeys("rig");
+    	}
+        
     }
     // method to type email or number
     public void enteremailOrNumber() {
-        driver.findElement(emailOrNumber).sendKeys("9998855413");
+    	if(driver.findElement(emailOrNumber).isDisplayed()) {
+    		System.out.println("Email or number box is present");
+    		 driver.findElement(emailOrNumber).sendKeys("9998855413");
+    	}
+       
     }
     // method to type password
     public void enternewPassword() {
-        driver.findElement(newPassword).sendKeys("123445678");
+    	if(driver.findElement(newPassword).isDisplayed()) {
+    		System.out.println("New password box is present");
+    		driver.findElement(newPassword).sendKeys("123445678");
+    	}
+        
     }
     // method to select day
     public void clickday() {
-        driver.findElement(day).click();
+    	if(driver.findElement(day).isEnabled()) {
+    		System.out.println("Day drop down is enabled");
+    		driver.findElement(day).click();
+    	}
+        
     }
     public void selectday() {
         Select drop1 = new Select(driver.findElement(By.id("day")));
@@ -49,7 +69,11 @@ public class SignUp {
     }
     // method to select month
     public void clickmonth() {
-        driver.findElement(month).click();
+    	if(driver.findElement(month).isEnabled()) {
+    		System.out.println("Month drop down is enabled");
+    		driver.findElement(month).click();
+    	}
+        
     }
     public void selectmonth() {
         Select drop2 = new Select(driver.findElement(By.id("month")));
@@ -57,7 +81,11 @@ public class SignUp {
     }
     // methos to select year
     public void clickyear() {
-        driver.findElement(year).click();
+    	if(driver.findElement(year).isEnabled()) {
+    		System.out.println("Year dropdown is enabled");
+    		 driver.findElement(year).click();
+    	}
+       
     }
     public void selectyear() {
         Select drop3 = new Select(driver.findElement(By.id("year")));
@@ -65,10 +93,18 @@ public class SignUp {
     }
     // method to select gender
     public void selectgender() {
-        driver.findElement(female).click();
+    	if(driver.findElement(female).isEnabled()) {
+    		System.out.println("Female radio button is enabled");
+    		driver.findElement(female).click();
+    	}
+        
     }
     // method to click signup
     public void clicksignupbtn() {
-        driver.findElement(signupbtn).click();
+    	if(driver.findElement(signupbtn).isEnabled()) {
+    		System.out.println("sign up button is enabled");
+    		 driver.findElement(signupbtn).click();
+    	}
+       
     }
 }
