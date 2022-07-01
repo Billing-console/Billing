@@ -29,10 +29,19 @@ public class LoginDDT {
 
         }
         @Test (dataProvider="testdata")
-        public void verify(String uname, String pwd) throws InterruptedException {
-            driver.findElement(By.name("email")).sendKeys(uname);
-            driver.findElement(By.name("pass")).sendKeys(pwd);
-            driver.findElement(By.xpath("//*[@id=\"loginbutton\"]")).click();
+         public void verify(String uname, String pwd) throws InterruptedException {
+        	if(driver.findElement(By.name("email")).isDisplayed()) {
+        		System.out.println("Email box is present");
+        		driver.findElement(By.name("email")).sendKeys(uname);
+        	}
+            if(driver.findElement(By.name("pass")).isDisplayed()) {
+            	System.out.println("password box is present");
+            	driver.findElement(By.name("pass")).sendKeys(pwd);
+            }
+            if(driver.findElement(By.xpath("//*[@id=\"loginbutton\"]")).isEnabled()) {
+            	System.out.println("Login button is present");
+            	driver.findElement(By.xpath("//*[@id=\"loginbutton\"]")).click();
+            }
             Thread.sleep(5000);
             if(driver.getTitle().contains("Log in to Facebook")) {
                 driver.navigate().refresh();
